@@ -12,7 +12,7 @@ function RTE({ name, control, label, defaultValue = "" }) {
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
-            apiKey="bfx25dxr48gfg8ewucadl2rs1ht22zmbfdh5gkeapguf7kge"
+            apiKey={import.meta.env.TINYMCE_API_KEY}
             // apiKey=String(import.meta.env.TINYMCE_API_KEY)
             initialValue={defaultValue}
             init={{
