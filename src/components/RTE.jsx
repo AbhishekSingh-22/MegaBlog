@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Controller } from "react-hook-form";
+import conf from "../conf/conf.js";
 import { Editor } from "@tinymce/tinymce-react";
 
 function RTE({ name, control, label, defaultValue = "" }) {
+  // const [apiKey, setApiKey] = useState("");
+
+  // useEffect(() => {
+  //   setApiKey(conf.appwriteBucketId);
+  // }, []);
+
   return (
     <div className="w-full">
       {label && <label className="inline-block mb-1 pl-1">{label}</label>}
@@ -12,7 +19,8 @@ function RTE({ name, control, label, defaultValue = "" }) {
         control={control}
         render={({ field: { onChange } }) => (
           <Editor
-            apiKey={import.meta.env.TINYMCE_API_KEY}
+            apiKey="bfx25dxr48gfg8ewucadl2rs1ht22zmbfdh5gkeapguf7kge"
+            // apiKey={apiKey}
             initialValue={defaultValue}
             init={{
               initialValue: defaultValue,

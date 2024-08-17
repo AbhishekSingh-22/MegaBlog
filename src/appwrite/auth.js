@@ -33,7 +33,7 @@ export class AuthService {
 
   async login({ email, password }) {
     try {
-      // await this.account.deleteSessions(); // to be removed
+      await this.account.deleteSessions(); // to be removed
       return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
       throw error;
