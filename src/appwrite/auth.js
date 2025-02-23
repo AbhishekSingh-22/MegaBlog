@@ -33,7 +33,16 @@ export class AuthService {
 
   async login({ email, password }) {
     try {
-      await this.account.deleteSessions(); // to be removed
+      try {
+        const user = await this.account.get(); // Fetch the logged-in user
+        if (user) {
+          await this.account.deleteSessions(); // Delete existing session if user exists
+        }
+      } catch (error) {
+        // Ignore error if no session exists
+      }
+
+      // Now create a new session
       return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
       throw error;
@@ -46,6 +55,7 @@ export class AuthService {
       return user;
     } catch (error) {
       console.log("Appwrite serive :: getCurrentUser :: error", error);
+      return false;
     }
 
     return null;
