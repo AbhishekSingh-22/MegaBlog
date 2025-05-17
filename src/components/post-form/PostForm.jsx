@@ -19,12 +19,12 @@ function PostForm({ post }) {
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
 
-  console.log(userData);
+  // console.log(userData);
 
   const submit = async (data) => {
     try {
       if (post) {
-        const file = data.image[0]
+        const file = data.image[0] 
           ? await appwriteService.uploadFile(data.image[0])
           : null;
 

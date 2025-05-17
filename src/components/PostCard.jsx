@@ -7,7 +7,7 @@ function PostCard({ $id, title, featuredImage }) {
 
   const getImg = async () => {
     const img = await appwriteService.getFilePreview(featuredImage);
-    console.log(img);
+    // console.log(img);
     setImg(img);
   };
 
