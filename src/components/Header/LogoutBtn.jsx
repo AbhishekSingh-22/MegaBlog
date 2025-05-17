@@ -6,13 +6,23 @@ import { logout } from "../../features/authSlice.js";
 function LogoutBtn() {
   const dispatch = useDispatch();
 
-  function logoutHandler() {
-    authService.logout().then(() => {
+  const logoutHandler = async () => {
+    try {
+      await authService.logout();
       dispatch(logout());
-    });
-  }
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
-  return <button onClick={logoutHandler}>Logout</button>;
+  return (
+    <button
+      onClick={logoutHandler}
+      className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors duration-200"
+    >
+      Logout
+    </button>
+  );
 }
 
 export default LogoutBtn;
