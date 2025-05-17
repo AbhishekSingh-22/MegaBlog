@@ -21,6 +21,7 @@ export default function Post() {
       if (post) {
         setPost(post);
         const img = await appwriteService.getFilePreview(post.featuredImage);
+        console.log(img)
         setImage(img.href);
       } else navigate("/");
     } else {
