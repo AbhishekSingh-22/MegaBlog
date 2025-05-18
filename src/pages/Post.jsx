@@ -46,7 +46,7 @@ export default function Post() {
     <div className="py-8">
       <Container>
         <div className="w-full flex justify-center mb-4 relative border rounded-xl p-2">
-          <img src={image} alt={post.title} className="rounded-xl max-h-96 max-w-96" />
+          <img src={image} alt={post.title} className="rounded-xl max-h-96" />
 
           {isAuthor && (
             <div className="absolute right-6 top-6">
